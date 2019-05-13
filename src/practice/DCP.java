@@ -2,6 +2,7 @@
  * Daily Coding Problem solution code
  */
 package practice;
+import CodeLibrary.Graph;
 import java.util.*;
 /**
  *
@@ -24,7 +25,8 @@ public class DCP {
     //grid. The word can be constructed from letters of a sequentially vertically
     //and horizontally adjacent cells. The same cell can not be used twice
     public boolean Problem99(int[][] board, String word){
-        
+        Graph g = new Graph();
+        System.out.println(g.x);
         return false;
     }
 }

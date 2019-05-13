@@ -18,17 +18,14 @@ public class Main {
      */
     public static void main(String[] args) {
       
-        CCI cci = new CCI();
-        System.out.println(cci.tripleStep(4));
+        DCP d = new DCP();
+        int[][] board ={
+                {'A','B','C','E'},
+                {'S','F','C','S'},
+                {'A','D','E','E'}};
+        String word = "ABCCED";
+        d.Problem99(board, word);
         
-    }
-    public static void printArray2D(int[][] arr){
-        for(int i =0; i < arr.length; i++){
-            for(int j = 0; j < arr[i].length; j++){
-                System.out.printf("%4d", arr[i][j]);
-            }
-            System.out.println();
-        }
     }
 }
 
