@@ -228,9 +228,7 @@ public class CCI {
     }
     //-------------------------------Chapter 2----------------------------------
     //2.1 Write code to remove duplicates from unsorted linked list
-    public void removeDUPS(LinkedListNode n){
-        
-    }
+    
     
     //-------------------------------Chapter 8----------------------------------
     //8.1 Count the number of ways to ascend a stair case only taking 1, 2,
