@@ -31,6 +31,28 @@ public class DCP {
         return false;
     }
     
+    //Given a list of integers and number k, return which contiguous elements of
+    //the list sum to K
+    public ArrayList<Integer> Problem102(ArrayList<Integer> list, int k){
+        ArrayList<Integer> result = new ArrayList<>();
+        for(int left = 0; left < list.size(); left++){
+            int right = left + 1;
+            int sum = list.get(left);
+            while(right < list.size() && sum < k){
+                sum += list.get(right);
+                right++;
+            }
+            //Add elements summing to k to a list
+            if(sum == k){
+                for(int i = left; i < right; i++)
+                    result.add(list.get(i));
+                return result;
+                
+            }
+        }
+        return result;
+    }
+    
     //Given a string and a set of characters, return the smallest substirng that
     //contains all characters in the set. If there is no string containing all
     //characters, return null
