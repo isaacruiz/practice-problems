@@ -17,15 +17,11 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-      
-        DCP d = new DCP();
-        int[][] board ={
-                {'A','B','C','E'},
-                {'S','F','C','S'},
-                {'A','D','E','E'}};
-        String word = "ABCCED";
-        d.Problem99(board, word);
+        String s = "ebbbbebbia";
+        char[] set = {'a', 'e', 'i'};
+        DCP dcp = new DCP();
         
+        System.out.println(dcp.Problem103(s, set));
     }
 }
 
