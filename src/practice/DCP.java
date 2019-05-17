@@ -9,10 +9,8 @@ import java.util.*;
  * @author Isaac
  */
 public class DCP {
-    /*
-    *Given a list of numbers and k, return whether any two numbers from list
-    *add up to k
-    */
+    //1 - Given a list of numbers and k, return whether any two numbers from list
+    //add up to k
     public boolean Problem1(int[] nums, int k){
         for(int i = 0; i < nums.length; i++)
             for(int j = i + 1; j < nums.length; j++)
@@ -21,7 +19,7 @@ public class DCP {
         return false;
     }
     
-    //Given a 2D board of characters and a word, find if the word exists in the
+    //99 - Given a 2D board of characters and a word, find if the word exists in the
     //grid. The word can be constructed from letters of a sequentially vertically
     //and horizontally adjacent cells. The same cell can not be used twice
     public boolean Problem99(int[][] board, String word){
@@ -31,8 +29,8 @@ public class DCP {
         return false;
     }
     
-    //Given a list of integers and number k, return which contiguous elements of
-    //the list sum to K
+    //102 - Given a list of integers and number k, return which contiguous
+    //elements of the list sum to K
     public ArrayList<Integer> Problem102(ArrayList<Integer> list, int k){
         ArrayList<Integer> result = new ArrayList<>();
         for(int left = 0; left < list.size(); left++){
@@ -53,9 +51,9 @@ public class DCP {
         return result;
     }
     
-    //Given a string and a set of characters, return the smallest substirng that
-    //contains all characters in the set. If there is no string containing all
-    //characters, return null
+    //103 - Given a string and a set of characters, return the smallest
+    //substirng that contains all characters in the set. If there is no string
+    //containing all characters, return null
     public String Problem103(String s, char[] chars){
         if (s.length() < chars.length)
             return null;
