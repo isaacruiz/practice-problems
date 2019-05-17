@@ -4,20 +4,11 @@
  * and open the template in the editor.
  */
 package CodeLibrary;
-import java.util.ArrayList;
+
 /**
  *
  * @author Isaac
  */
-public class Graph {
-    public int x = 5;
-    public Graph(){
-        x = 3;
-    }
-    
-    //Insert node
-    
-    //Add edges
+public class Node {
+    //Array list of neighboring nodes
 }
-
-
