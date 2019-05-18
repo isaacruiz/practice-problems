@@ -43,7 +43,7 @@ public class DCP {
         }
         return result;
     }
-    //Same problem, but without using division (Better runtime solution?)
+    //Same problem, but without using division
     public int[] Problem2B(int[] nums){
         int[] result = new int[nums.length];
         int product = 1;
@@ -60,8 +60,15 @@ public class DCP {
         }
         return result;
     }
-    
-    //TODO:Incomplete
+    //TODO: Incomplete
+    //4 - Given an array of integers, find the first missing positive integer in
+    //linear time and constant space. The array can contain negative numbers and
+    //duplicates
+    public int Problem4(int[] nums){
+        
+        return -1;
+    }
+    //TODO: Incomplete
     //99 - Given a 2D board of characters and a word, find if the word exists in the
     //grid. The word can be constructed from letters of a sequentially vertically
     //and horizontally adjacent cells. The same cell can not be used twice
@@ -134,5 +141,31 @@ public class DCP {
             }
         }
         return found ? prev : null;
+    }
+    //104 - Determine whether a linked list is a palindrome
+    public boolean Problem104A(LinkedList<Character> word){
+        Iterator left = word.iterator();
+        Iterator right = word.descendingIterator();
+        for(int i = 0; i < word.size()/2; i++){
+            if(left.next() != right.next())
+                return false;
+        }
+        return true;
+    }
+    //If it is a singly linked list
+    public boolean Problem104B(LinkedList<Character> word){
+        Stack<Character> stack = new Stack<>();
+        Iterator left = word.iterator();
+        for(int i = 0; i < word.size()/2; i++){
+                stack.push((Character)left.next());
+        }
+        if(word.size() % 2 == 1)
+            left.next();
+        while(left.hasNext()){
+            if(left.next() != stack.pop())
+                return false;
+        }
+        
+        return true;
     }
 }

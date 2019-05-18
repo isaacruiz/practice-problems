@@ -17,9 +17,17 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int[] nums = {1,2,3,4,5};
         DCP dcp = new DCP();
-        System.out.println(Arrays.toString(dcp.Problem2B(nums)));
+        LinkedList<Character> word = new LinkedList<>();
+        word.add('a');
+        word.add('b');
+        word.add('d');
+        word.add('d');
+        word.add('b');
+        word.add('a');
+        Iterator left = word.iterator();
+        
+        System.out.println(dcp.Problem104A(word));
     }
 }
 
