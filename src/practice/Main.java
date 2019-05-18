@@ -17,19 +17,9 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        String s = "ebbbbebbia";
-        char[] set = {'a', 'e', 'i'};
-        ArrayList<Integer> list = new ArrayList<Integer>();
-        list.add(0);
-        list.add(0);
-        list.add(3);
-        list.add(4);
-        list.add(5);
-        list.add(5);
-        int k = 265;
+        int[] nums = {1,2,3,4,5};
         DCP dcp = new DCP();
-        System.out.println(list);
-        System.out.println(dcp.Problem102(list, k));
+        System.out.println(Arrays.toString(dcp.Problem2B(nums)));
     }
 }
 

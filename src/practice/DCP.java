@@ -11,14 +11,57 @@ import java.util.*;
 public class DCP {
     //1 - Given a list of numbers and k, return whether any two numbers from list
     //add up to k
-    public boolean Problem1(int[] nums, int k){
+    public boolean Problem1A(int[] nums, int k){
         for(int i = 0; i < nums.length; i++)
             for(int j = i + 1; j < nums.length; j++)
                 if(nums[i] + nums[j] == k)
                     return true;
         return false;
     }
+    //Do it in one pass
+    public boolean Problem1B(int[] nums, int k){
+        Set<Integer> nums_hash = new HashSet<>();
+        for(int i: nums){
+            if(nums_hash.contains(k - i))
+                return true;
+            nums_hash.add(i);
+        }
+        return false;
+    }
     
+    //2 - Given an array of integers, return a new array such that each element at
+    //index i of the new array is the product of all the numbers in the original
+    //array except for the one at i
+    public int[] Problem2A(int[] nums){
+        int[] result = new int[nums.length];
+        int product = 1;
+        for(int i = 0; i < nums.length; i++){
+            product *= nums[i];
+        }
+        for(int i = 0; i < nums.length; i++){
+            result[i] = product/nums[i];
+        }
+        return result;
+    }
+    //Same problem, but without using division (Better runtime solution?)
+    public int[] Problem2B(int[] nums){
+        int[] result = new int[nums.length];
+        int product = 1;
+        for(int i = 0; i < nums.length; i++)
+            product *= nums[i];
+        
+        for(int i = 0; i < nums.length; i++){
+            int temp = product;
+            result[i] = 0;
+            while(temp > 0){
+                result[i]++;
+                temp -= nums[i];
+            }        
+        }
+        return result;
+    }
+    
+    //TODO:Incomplete
     //99 - Given a 2D board of characters and a word, find if the word exists in the
     //grid. The word can be constructed from letters of a sequentially vertically
     //and horizontally adjacent cells. The same cell can not be used twice
