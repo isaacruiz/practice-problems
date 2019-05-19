@@ -17,10 +17,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        DCP dcp = new DCP();
         
-        
-        System.out.println(dcp.Problem104A(word));
     }
 }
 
