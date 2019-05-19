@@ -5,6 +5,7 @@
  */
 package practice;
 import java.util.*;
+import CtCILibrary.*;
 /**
  *
  * @author Isaac
@@ -107,7 +108,7 @@ public class CCI {
         else return (bit_vector & (bit_vector -1)) == 0;
     }
     
-    private int toggle(int bit_vector, int index){
+    protected int toggle(int bit_vector, int index){
         int mask = 1 << index;
         return bit_vector ^ mask;
     }
