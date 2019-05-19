@@ -18,14 +18,7 @@ public class Main {
      */
     public static void main(String[] args) {
         DCP dcp = new DCP();
-        LinkedList<Character> word = new LinkedList<>();
-        word.add('a');
-        word.add('b');
-        word.add('d');
-        word.add('d');
-        word.add('b');
-        word.add('a');
-        Iterator left = word.iterator();
+        
         
         System.out.println(dcp.Problem104A(word));
     }
