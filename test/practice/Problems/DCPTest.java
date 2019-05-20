@@ -29,7 +29,7 @@ public class DCPTest {
      */
     @Test
     public void testProblem1() {
-        System.out.println("Problem1A");
+        System.out.println("Problem1");
         int[] nums1 = {1,2,3,4};
         int[] nums2 = {1,0,0,6};
         int[] nums3 = {5};
@@ -46,7 +46,7 @@ public class DCPTest {
      */
     @Test
     public void testProblem2() {
-        System.out.println("Problem2A");
+        System.out.println("Problem2");
         int[] nums1 = {1, 2, 3, 4, 5};
         int[] res1 = {120, 60, 40, 30, 24};
         int[] nums2 = {5, 6, 7, 9};
@@ -124,7 +124,7 @@ public class DCPTest {
     }
 
     /**
-     * Test of Problem104A method, of class DCP.
+     * Test of Problem104 method, of class DCP.
      */
     @Test
     public void testProblem104() {
@@ -160,5 +160,20 @@ public class DCPTest {
         evenPalindrome.removeFirst();
         assertFalse(dcp.Problem104A(evenPalindrome));
         assertFalse(dcp.Problem104B(evenPalindrome));
-    } 
+    }
+    
+    @Test
+    public void testProblem106() {
+        int[] case1 = {2, 0, 1, 0};
+        int[] case2 = {1, 1, 0, 1};
+        int[] case3 = {5, 2, 0, 1};
+        int[] case4 = {0};
+        int[] case5 = {5, 0, 0, 0, 0, 0};
+        
+        assertTrue(dcp.Problem106(case1));
+        assertFalse(dcp.Problem106(case2));
+        assertTrue(dcp.Problem106(case3));
+        assertTrue(dcp.Problem106(case4));
+        assertTrue(dcp.Problem106(case5));
+    }
 }

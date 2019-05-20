@@ -198,4 +198,21 @@ public class DCP {
         
         return true;
     }
+    
+    //106 - Given an integer list where each number represents the number of
+    //hops you can make, determine whether you can reach the last index starting
+    //at index zero
+    public boolean Problem106(int[] hops){
+        int remaining_hops = 1;
+        int index = 0;
+        while(remaining_hops > 0){
+            remaining_hops--;
+            if(index == hops.length-1)
+                return true;
+            
+            remaining_hops += hops[index];
+            index++;
+        }
+        return false;
+    }
 }
