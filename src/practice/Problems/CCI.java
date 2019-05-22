@@ -1,19 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Class that implements the coding questions in Cracking the Coding Interview
+ * @author Isaac Ruiz
  */
 package practice;
 import java.util.*;
 import CtCILibrary.*;
-/**
- *
- * @author Isaac
- */
+
 public class CCI {
-    //-------------------------------Chapter 1----------------------------------
-    //1.1 Function to determine if a string has all unique characters
-    //TODO: implement solution without using additional data structure
+    /*
+     * ----------------------------Chapter 1------------------------------------
+     */
+    
+    /**
+     * Question 1.1
+     * <p>
+     * Function to determine if a string has all unique characters
+     * </p>
+     * @param s Given string
+     * @return true if all characters are unique
+     */
     public boolean isUnique(String s){
         /*
         HashSet set = new HashSet();
@@ -26,11 +31,17 @@ public class CCI {
         return true;
         */
         //Without additional data structures
-        
-        return true;
+                return true;
     }
-    
-    //1.2 Given two strings, decide if one string is a permutation of the other
+    /**
+     * Question 1.2
+     * <p>
+     * Given two strings, decide if one is a permutation of the other
+     * </p>
+     * @param a String a
+     * @param b String b
+     * @return true if one string can be made by the characters of the other
+     */
     public boolean checkPermutation(String a, String b){
         if(a.length() != b.length())
             return false;
@@ -50,8 +61,15 @@ public class CCI {
         return true;
     }
     
-    //1.3 Replace the spaces in a string "%20" and you are given the true length
-    //of the string
+    /**
+     * Question 1.3
+     * <p>
+     * Replaces the spaces in string with "%20"
+     * </p>
+     * @param s string to URLify
+     * @param len length of the final string
+     * @return string with replaced spaces
+     */
     public String URLify(String s, int len){
         char[] str_array = new char[s.length()];
         str_array = s.toCharArray();
@@ -71,7 +89,14 @@ public class CCI {
         return new String(str_array);
     }
     
-    //1.4 Check if given string is a permutation of a palindrome
+    /**
+     * Question 1.4
+     * <p>
+     * Check if a given string is a permutation of a palindrome
+     * </p>
+     * @param s input string to check for palindromability
+     * @return true if string can be made into a palindrome
+     */
     public boolean palindromePermutation(String s){
         //Solution 1
         /*
@@ -112,8 +137,17 @@ public class CCI {
         int mask = 1 << index;
         return bit_vector ^ mask;
     }
-    //1.5 Returns true if two given strings are one/zero edits away from being
-    //the same string via insertion, deletion, or replacement of a character
+    
+    /**
+     * Question 1.5
+     * <p>
+     * Determines if two given strings are one/zero edits away from being
+     * the same string via insertion, deletion, or replacement of a character
+     * </p>
+     * @param a first input string
+     * @param b second input string
+     * @return true if strings are one edit difference
+     */
     public boolean oneAway(String a, String b){
         
         int charDiff = a.length() - b.length();
@@ -157,10 +191,17 @@ public class CCI {
         return (a.equals(b));
     }
     
-    //1.6 Implement method that returns a string telling the count of duplicate
-    //adjacent characters rather than the whole string. If the result string is
-    //longer, return the original string.
-    //(input: aaabbcccccddx output: a3b2c5d2x1
+    /**
+     * Question 1.6
+     * <p>
+     * Returns a string telling the count of duplicate adjacent characters
+     * rather than the whole string. If the result string is longer, return the
+     * original string. (input: aaabbcccccddx output: a3b2c5d2x1
+     * </p>
+     * @param s uncompressed input string
+     * @return string representing original string or original string if
+     * representation is longer
+     */
     public String stringCompression(String s){
         StringBuilder sb = new StringBuilder();
         int i = 0;
@@ -180,13 +221,30 @@ public class CCI {
         return sb.toString().length() < s.length() ? sb.toString() : s;
     }
     
-    //1.7 Rotate an NxN matrix in place
+    /**
+     * Question 1.7
+     * <p>
+     * Rotates an N x N matrix in place
+     * </p>
+     * @param matrix
+     * @return 
+     */
     public boolean rotateMatrix(int[][]matrix){
         for(int layer = 0; layer < matrix.length/2; layer++){
             rotateLayer(matrix, layer);
         }
         return true;
     }
+    /**
+     * Question 1.7 helper function
+     * <p>
+     * Rotates a single layer of a square matrix clockwise
+     * </p>
+     * @param matrix input matrix to be rotated
+     * @param layer the layer the rotation is performed on, counting from outside
+     * inwards
+     * @return true if rotation was successful 
+     */
     private boolean rotateLayer(int[][]matrix, int layer){
         if(matrix.length != matrix[0].length || matrix.length == 0)
             return false;
@@ -227,13 +285,31 @@ public class CCI {
         }
         return true;
     }
-    //-------------------------------Chapter 2----------------------------------
-    //2.1 Write code to remove duplicates from unsorted linked list
+    /*
+     * ----------------------------Chapter 2------------------------------------
+     */
+    /**
+     * Question 2.1
+     * <p>
+     * Removes duplicates from an unsorted linked list
+     * </p>
+     * @param list unsorted linked list
+     * @return linked list with duplicate entries removed
+     */
     
     
-    //-------------------------------Chapter 8----------------------------------
-    //8.1 Count the number of ways to ascend a stair case only taking 1, 2,
-    //or 3 steps at a time
+    /*
+     * ----------------------------Chapter 8------------------------------------
+     */
+    /**
+     * Question 8.1
+     * <p>
+     * Counts the number of ways to ascend a stair case only taking 1, 2, or 3
+     * steps at a time
+     * </p>
+     * @param steps the number of steps
+     * @return number of ways to ascend stair case
+     */
     public int tripleStep(int steps){
         /*
         if (steps == 1) return 1;
@@ -246,6 +322,14 @@ public class CCI {
         return numWays(steps, memo);
         
     }
+    /**
+     * Question 8.1 helper function
+     * <p>
+     * Counts the number of ways to ascend staircase using a look-up table
+     * @param steps number of steps to ascend
+     * @param memo look up table
+     * @return number of ways to ascend
+     */
     private int numWays(int steps, int[] memo){
         if(steps < 0)
             return 0;
