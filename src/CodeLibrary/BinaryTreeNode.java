@@ -37,24 +37,36 @@ public class BinaryTreeNode {
     
     /**
      * Adds node as left child of given node
+     * <p>
+     * If a subtree already exists in the left child position, the subtree
+     * becomes the left child of the added node
+     * </p>
      * @param {@link BinaryTreeNode}
-     * @return false if there already exists a node in left child
+     * @return {@link BinaryTreeNode} reference to inserted node
      */
-    public boolean addLeftChild(BinaryTreeNode node){
-        if(this.left != null) return false;
+    public BinaryTreeNode addLeftChild(BinaryTreeNode node){
+        if(this.left != null){
+            node.addLeftChild(this.left);
+        }
         this.left = node;
-        return true;
+        return node;
     }
     
-    /**
-     * Adds node as left child of given node
+/**
+     * Adds node as right child of given node
+     * <p>
+     * If a subtree already exists in the right child position, the subtree
+     * becomes the right child of the added node
+     * </p>
      * @param {@link BinaryTreeNode}
-     * @return false if there already exists a node in left child
+     * @return {@link BinaryTreeNode} reference to inserted node
      */
-    public boolean addRightChild(BinaryTreeNode node){
-        if(this.right != null) return false;
+    public BinaryTreeNode addRightChild(BinaryTreeNode node){
+        if(this.right != null){
+            node.addRightChild(this.right);
+        }
         this.right = node;
-        return true;
+        return node;
     }
     /**
      * Gets left child
@@ -78,5 +90,18 @@ public class BinaryTreeNode {
      */
     public int getValue(){
         return this.data;
+    }
+    
+    /**
+     * Calculates the height of a tree from given root
+     * @param {@link BinaryTreeNode}
+     * @return int height of subtree from node parameter
+     */
+    public static int height(BinaryTreeNode root){
+        if(root == null)
+            return -1;
+        int height_left = height(root.getLeft());
+        int height_right = height(root.getRight());
+        return height_left > height_right ? 1 + height_left : 1 + height_right;
     }
 }
