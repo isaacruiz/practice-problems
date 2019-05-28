@@ -13,7 +13,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import practice.DCP;
+import Problems.DCP;
+import CodeLibrary.*;
 
 /**
  *
@@ -161,7 +162,9 @@ public class DCPTest {
         assertFalse(dcp.Problem104A(evenPalindrome));
         assertFalse(dcp.Problem104B(evenPalindrome));
     }
-    
+    /**
+     * Test of Problem106 method of class DCP
+     */
     @Test
     public void testProblem106() {
         int[] case1 = {2, 0, 1, 0};
@@ -175,5 +178,32 @@ public class DCPTest {
         assertTrue(dcp.Problem106(case3));
         assertTrue(dcp.Problem106(case4));
         assertTrue(dcp.Problem106(case5));
+    }
+    
+    /**
+     * Test of Problem107() method in class DCP
+     */
+    @Test
+    public void testProblem107(){
+        BinaryTreeNode root = new BinaryTreeNode(1);
+        root.addLeftChild(new BinaryTreeNode(2));
+        root.addRightChild(new BinaryTreeNode(3));
+        root.getRight().addLeftChild(new BinaryTreeNode(4));
+        root.getRight().addRightChild(new BinaryTreeNode(5));
+        System.out.println(dcp.Problem107(root));
+        assertEquals("1, 2, 3, 4, 5", dcp.Problem107(root));
+        
+        BinaryTreeNode[] tree = new BinaryTreeNode[9];
+        for(int i = 0; i < tree.length; i++)
+                tree[i] = new BinaryTreeNode(i);
+        tree[0].addLeftChild(tree[1]);
+        tree[1].addLeftChild(tree[3]);
+        tree[3].addRightChild(tree[5]);
+        tree[5].addLeftChild(tree[7]);
+        tree[5].addRightChild(tree[8]);
+        tree[0].addRightChild(tree[2]);
+        tree[2].addRightChild(tree[4]);
+        tree[4].addLeftChild(tree[6]);
+        assertEquals("0, 1, 2, 3, 4, 5, 6, 7, 8", dcp.Problem107(tree[0]));
     }
 }

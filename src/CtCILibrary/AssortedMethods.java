@@ -20,7 +20,7 @@ public class AssortedMethods {
 		return randomIntInRange(1, 100) <= percentTrue;
 	}
 	
-	public static boolean[][] randomBooleanMatrix(int M, int N, int percentTrue) {
+	public static boolean[][]randomBooleanMatrix(int M, int N, int percentTrue) {
 		boolean[][] matrix = new boolean[M][N];
 		for (int i = 0; i < M; i++) {
 			for (int j = 0; j < N; j++) {
