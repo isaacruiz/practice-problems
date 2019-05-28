@@ -316,6 +316,33 @@ public class CCI {
         return;
     }
     
+    /**
+     * Question 2.2
+     * <p>
+     * Returns the kth to the last element in a singly linked list
+     * </p>
+     * @param list
+     * @param k
+     * @return {@link CtCILibrary#LinkedListNode} 
+     */
+    public LinkedListNode getKthToLast(LinkedListNode list, int k){
+        LinkedListNode cur = list;
+        int length = 0;
+        while(cur != null){
+            cur = cur.next;
+            length++;
+        }
+        
+        if(k < 1 || k > length) return null;
+        int counter = length;
+        cur = list;
+        while(counter > k){
+            cur = cur.next;
+            counter--;
+        }
+        return cur;
+    }
+    
     /*
      * ----------------------------Chapter 8------------------------------------
      */

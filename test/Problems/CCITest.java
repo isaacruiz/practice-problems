@@ -107,6 +107,23 @@ public class CCITest extends TestCase {
         assertNull(l2);
     }
     /**
+     * Test of getKthToLast method, of class CCI.
+     */
+    public void testGetKthToLast(){
+        LinkedListNode[] nodes = new LinkedListNode[10];
+        nodes[0] = new LinkedListNode(0);
+        for(int i = 1; i < nodes.length; i++){
+            nodes[i] = new LinkedListNode(i, null, nodes[i-1]);
+        }
+        assertEquals(nodes[0], cci.getKthToLast(nodes[0], 10));
+        assertEquals(nodes[9], cci.getKthToLast(nodes[0], 1));
+        assertEquals(nodes[8], cci.getKthToLast(nodes[0], 2));
+        assertEquals(nodes[4], cci.getKthToLast(nodes[0], 6));
+        assertNull(cci.getKthToLast(nodes[0], 11));
+        assertNull(cci.getKthToLast(nodes[0], 0));
+    }
+    
+    /**
      * Test of tripleStep method, of class CCI.
      */
     public void testTripleStep() {
