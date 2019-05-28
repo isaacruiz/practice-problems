@@ -294,9 +294,27 @@ public class CCI {
      * Removes duplicates from an unsorted linked list
      * </p>
      * @param list unsorted linked list
-     * @return linked list with duplicate entries removed
      */
-    
+    public void removeDups(LinkedListNode list){
+        if(list == null || list.next == null) return;
+        Set<Integer> hs = new HashSet<>();
+        hs.add(list.data);
+        LinkedListNode cur = list.next;
+        LinkedListNode prev = list;
+        while(cur != null){
+            if(hs.contains(cur.data)){
+                prev.setNext(cur.next);
+                cur.next.setPrevious(prev);
+                cur = cur.next;
+            }
+            else{
+                hs.add(cur.data);
+                prev = cur;
+                cur = cur.next;
+            }
+        }
+        return;
+    }
     
     /*
      * ----------------------------Chapter 8------------------------------------
