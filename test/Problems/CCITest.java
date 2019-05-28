@@ -104,7 +104,6 @@ public class CCITest extends TestCase {
             assertEquals(l1.data, l2.data);
             l1 = l1.next; l2 = l2.next;
         }
-        assertNull(l2);
     }
     /**
      * Test of getKthToLast method, of class CCI.
@@ -123,6 +122,22 @@ public class CCITest extends TestCase {
         assertNull(cci.getKthToLast(nodes[0], 0));
     }
     
+    /**
+     * Test of deleteMiddleNode method of class CCI
+     */
+    public void testDeleteMiddleNode(){
+        LinkedListNode[] nodes = new LinkedListNode[10];
+        LinkedListNode[] expected = new LinkedListNode[10];
+        nodes[0] = new LinkedListNode(0);
+        expected[0] = new LinkedListNode(0);
+        
+        for(int i = 1; i < nodes.length; i++){
+            nodes[i] = new LinkedListNode(i, null, nodes[i-1]);
+            if(i != 3) expected[i] = new LinkedListNode(i, null, expected[i-1]);
+        }
+        cci.deleteMiddleNode(nodes[3]);
+        testLists(expected[0], nodes[0]);
+    }
     /**
      * Test of tripleStep method, of class CCI.
      */

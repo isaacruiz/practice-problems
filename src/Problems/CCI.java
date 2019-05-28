@@ -342,6 +342,20 @@ public class CCI {
         }
         return cur;
     }
+    /**
+     * Question 2.3
+     * <p>
+     * Deletes any node that is not the first or last node
+     * </p>
+     * @param node
+     * @return returns false if fails
+     */
+    public boolean deleteMiddleNode(LinkedListNode node){
+        if(node == null || node.next == null) return false;
+        node.data = node.next.data;
+        node.next = node.next.next;
+        return true;
+    }
     
     /*
      * ----------------------------Chapter 8------------------------------------
