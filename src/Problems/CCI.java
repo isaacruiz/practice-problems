@@ -357,6 +357,32 @@ public class CCI {
         return true;
     }
     
+    /**
+     * Question 2.4
+     * <p>
+     * Partitions linked list such that all nodes less than p come before nodes
+     * greater than or equal to p
+     * </p>
+     * @param n head of linked list
+     * @param p number to partition around
+     */
+    public void partition (LinkedListNode n, int p){
+        LinkedListNode cur = n;
+        LinkedListNode next;
+        LinkedListNode head = n;
+        while(cur != null){
+            next = cur.next;
+            if(cur.data < p && cur != head){
+                cur.prev.next = next;
+                if(cur.next != null) next.prev = cur.prev;
+                cur.prev = null;
+                cur.next = head;
+                head = cur;
+            }
+            cur = next;
+        }
+        System.out.println(head.printForward());
+    }
     /*
      * ----------------------------Chapter 8------------------------------------
      */

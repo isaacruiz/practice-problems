@@ -138,6 +138,21 @@ public class CCITest extends TestCase {
         cci.deleteMiddleNode(nodes[3]);
         testLists(expected[0], nodes[0]);
     }
+    
+    /**
+     * Test of partition method of class CCI
+     */
+    public void testPartition(){
+        LinkedListNode[] n = new LinkedListNode[7];
+        n[0] = new LinkedListNode(3);
+        n[1] = new LinkedListNode(8, null, n[0]);
+        n[2] = new LinkedListNode(1, null, n[1]);
+        //n[3] = new LinkedListNode(5, null, n[2]);
+        //n[4] = new LinkedListNode(10, null, n[3]);
+        //n[5] = new LinkedListNode(2, null, n[4]);
+        //n[6] = new LinkedListNode(1, null, n[5]);
+        cci.partition(n[0], 4);
+    }
     /**
      * Test of tripleStep method, of class CCI.
      */
