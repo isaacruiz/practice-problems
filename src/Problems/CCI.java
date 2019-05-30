@@ -383,6 +383,32 @@ public class CCI {
         }
         System.out.println(head.printForward());
     }
+    
+    /**
+     * Question 2.5
+     * <p>
+     * Sums two numbers represented as linked lists where each node represents a
+     * digit stored in reverse-order.
+     * </p>
+     */
+    public LinkedListNode sumLists(LinkedListNode a, LinkedListNode b){
+        if(a == null && b == null) return new LinkedListNode(0);
+        if (a == null) return b;
+        if(b == null) return a;
+        return sumListsRecursive(a, b, 0);
+    }
+    public LinkedListNode sumListsRecursive(LinkedListNode a, LinkedListNode b, int carry){
+        if(a == null && b == null && carry == 0) return null;
+        int value = 0;
+        if(a != null) value += a.data;
+        if(b != null) value += b.data;
+        value += carry;
+        LinkedListNode n = new LinkedListNode();
+        n.data = value % 10;
+        carry = value >= 10 ? 1 : 0;
+        n.next = sumListsRecursive(a == null? null : a.next, b == null ? null : b.next, carry);
+        return n;
+    }
     /*
      * ----------------------------Chapter 8------------------------------------
      */

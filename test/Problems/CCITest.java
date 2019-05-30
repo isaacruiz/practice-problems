@@ -153,6 +153,43 @@ public class CCITest extends TestCase {
         //n[6] = new LinkedListNode(1, null, n[5]);
         cci.partition(n[0], 4);
     }
+    
+    /**
+     * Test of sumListsRecursive method
+     */
+    public void testSumListsRecursive(){
+        LinkedListNode[] list1 = new LinkedListNode[3];
+        list1[0] = new LinkedListNode(1);
+        list1[1] = new LinkedListNode(2, null, list1[0]);
+        list1[2] = new LinkedListNode(3, null, list1[1]);
+        assertEquals("1->2->3", list1[0].printForward());
+        
+        LinkedListNode[] list2 = new LinkedListNode[3];
+        list2[0] = new LinkedListNode(4);
+        list2[1] = new LinkedListNode(5, null, list2[0]);
+        list2[2] = new LinkedListNode(6, null, list2[1]);
+        assertEquals("4->5->6", list2[0].printForward());
+        
+        LinkedListNode[] list3 = new LinkedListNode[2];
+        list3[0] = new LinkedListNode(6);
+        list3[1] = new LinkedListNode(4, null, list3[0]);
+        assertEquals("6->4", list3[0].printForward());
+        
+        LinkedListNode[] list4 = new LinkedListNode[3];
+        list4[0] = new LinkedListNode(9);
+        list4[1] = new LinkedListNode(9, null, list4[0]);
+        list4[2] = new LinkedListNode(9, null, list4[1]);
+        assertEquals("9->9->9", list4[0].printForward());
+        
+        LinkedListNode list5 = new LinkedListNode(1);
+        assertEquals("1", list5.printForward());
+        
+        assertEquals("5->7->9", cci.sumLists(list1[0], list2[0]).printForward());
+        assertEquals("0->0->7", cci.sumLists(list2[0], list3[0]).printForward());
+        assertEquals("0->0->7", cci.sumLists(list3[0], list2[0]).printForward());
+        assertEquals("0->0->7", cci.sumLists(list3[0], list2[0]).printForward());
+        assertEquals("0->0->0->1", cci.sumLists(list4[0], list5).printForward());
+    }
     /**
      * Test of tripleStep method, of class CCI.
      */
