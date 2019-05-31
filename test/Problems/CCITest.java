@@ -191,6 +191,19 @@ public class CCITest extends TestCase {
         assertEquals("0->0->0->1", cci.sumLists(list4[0], list5).printForward());
     }
     /**
+     * Test of isPalindrome method
+     */
+    public void testIsPalindrome(){
+        LinkedListNode list1 = LinkedListNode.stringToList("1 2 3 3 2 1");
+        LinkedListNode list2 = LinkedListNode.stringToList("1 2 1");
+        LinkedListNode list3 = LinkedListNode.stringToList("1 2 2 4");
+        LinkedListNode list4 = LinkedListNode.stringToList("0 2 1");
+        assertTrue(cci.isPalindrome(list1));
+        assertTrue(cci.isPalindrome(list2));
+        assertFalse(cci.isPalindrome(list3));
+        assertFalse(cci.isPalindrome(list4));
+    }
+    /**
      * Test of tripleStep method, of class CCI.
      */
     public void testTripleStep() {

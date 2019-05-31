@@ -462,6 +462,27 @@ public class CCI {
         public int val;
         Carry(int val){this.val = val;}
     }
+    /**
+     * Determines if linked list represents a palindrome
+     * @param n
+     * @return true if it is a palindrome
+     */
+    public boolean isPalindrome(LinkedListNode n){
+        int len = n.length();
+        LinkedListNode cur = n;
+        Stack<LinkedListNode> stack = new Stack<>();
+        for(int i = 0; i < len / 2; i++){
+            stack.push(cur);
+            cur = cur.next;
+        }
+        if(len % 2 == 1) cur = cur.next;
+        
+        while(cur != null){
+            if(cur.data != stack.pop().data) return false;
+            cur = cur.next;
+        }
+        return true;
+    }
     /*
      * ----------------------------Chapter 8------------------------------------
      */
