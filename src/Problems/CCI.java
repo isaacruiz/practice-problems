@@ -409,6 +409,59 @@ public class CCI {
         n.next = sumListsRecursive(a == null? null : a.next, b == null ? null : b.next, carry);
         return n;
     }
+    /**
+     * Question 2.5 Follow-up
+     * <p>
+     * Instead of reverse order, the digits in the list are in forward order
+     * </p>
+     * @param a {@link ctcilibrary#LinkedListNode} first list
+     * @param b {@link ctcilibrary#LinkedListNode} second list
+     * @return {@link ctcilibrary#LinkedListNode} list representing the
+     * sum of lists
+     */   
+    public LinkedListNode sumForwardLists(LinkedListNode a, LinkedListNode b){
+        int lenA = LinkedListNode.length(a);
+        int lenB = LinkedListNode.length(b);
+        int length = Math.max(lenA, lenB);
+        a = prependZeros(a, length - lenA);
+        b = prependZeros(b, length - lenB);
+        System.out.printf("Summing lists %s and %s\n", a.printForward(), b.printForward());
+        Carry carry = new Carry(0);
+        LinkedListNode result = sumListsRecursive(a, b, carry, length);
+        return carry.val == 1 ? new LinkedListNode(1, result, null) : result;
+    }
+    
+    /**
+     * Prepends zeros to list
+     * @param list {@link CtCILibrary#LinkedListNode} List to prepend zeros to
+     * @param k Number of zeros to prepend
+     * @return {@link CtCILibrary#LinkedListNode} List with prepended zeros
+     */
+    public LinkedListNode prependZeros(LinkedListNode list, int k){
+        if (k == 0)
+            return list;
+        return prependZeros(new LinkedListNode(0, list, null), k - 1);
+    }
+  
+    private LinkedListNode sumListsRecursive(LinkedListNode a, LinkedListNode b, Carry carry, int index){
+        LinkedListNode n = new LinkedListNode();
+        if(index == 0){
+            return null;
+        }
+       
+        int val = a.data + b.data + carry.val;
+        carry.val = val >= 10 ? 1 : 0;
+         n.next = sumListsRecursive(a.next, b.next, carry, index - 1);
+        n.data = val % 10;
+        System.out.printf("a:%d b:%d sum:%d carry:%d val:%d\n", a.data, b.data, val, carry.val, n.data);
+       
+        return n.next;
+    }
+    
+    class Carry{
+        public int val;
+        Carry(int val){this.val = val;}
+    }
     /*
      * ----------------------------Chapter 8------------------------------------
      */
