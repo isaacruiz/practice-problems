@@ -444,18 +444,18 @@ public class CCI {
     }
   
     private LinkedListNode sumListsRecursive(LinkedListNode a, LinkedListNode b, Carry carry, int index){
-        LinkedListNode n = new LinkedListNode();
+
         if(index == 0){
             return null;
         }
-       
+        LinkedListNode n = new LinkedListNode();
         int val = a.data + b.data + carry.val;
         carry.val = val >= 10 ? 1 : 0;
-         n.next = sumListsRecursive(a.next, b.next, carry, index - 1);
+        n.next = sumListsRecursive(a.next, b.next, carry, index - 1);
         n.data = val % 10;
         System.out.printf("a:%d b:%d sum:%d carry:%d val:%d\n", a.data, b.data, val, carry.val, n.data);
        
-        return n.next;
+        return n;
     }
     
     class Carry{
