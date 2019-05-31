@@ -50,9 +50,9 @@ public class LinkedListNode {
             LinkedListNode head2 = new LinkedListNode(data, next2, null);
             return head2;
     }
-    public static int length(LinkedListNode n){
+    public int length(){
         int length = 0;
-        LinkedListNode a = n;
+        LinkedListNode a = this;
         while (a != null){
             length++;
             a = a.next;

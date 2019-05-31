@@ -420,8 +420,8 @@ public class CCI {
      * sum of lists
      */   
     public LinkedListNode sumForwardLists(LinkedListNode a, LinkedListNode b){
-        int lenA = LinkedListNode.length(a);
-        int lenB = LinkedListNode.length(b);
+        int lenA = a.length();
+        int lenB = b.length();
         int length = Math.max(lenA, lenB);
         a = prependZeros(a, length - lenA);
         b = prependZeros(b, length - lenB);
