@@ -483,6 +483,47 @@ public class CCI {
         }
         return true;
     }
+    /**
+     * Question 2.7 return the intersecting node of two lists
+     * @param a first list
+     * @param b second list
+     * @return the first intersecting node
+     */
+    public LinkedListNode intersection(LinkedListNode a, LinkedListNode b){
+        Tail tail_a = new Tail(a);
+        Tail tail_b = new Tail(b);
+        if(tail_a.tail != tail_b.tail) return null;
+        LinkedListNode runner_a = a;
+        LinkedListNode runner_b = b;
+        int shift = Math.abs(tail_a.pos - tail_b.pos);
+        if(tail_a.pos > tail_b.pos){
+            for(int i = 0; i < shift; i++)
+                runner_a = runner_a.next;
+        }
+        if(tail_b.pos > tail_a.pos){
+            for(int i = 0; i < shift; i++){
+                runner_b = runner_b.next;
+            }
+        }
+        while(runner_a != null && runner_b != null){
+            if(runner_a == runner_b) return runner_a;
+            runner_a = runner_a.next;
+            runner_b = runner_b.next;
+        }
+        return null;
+    }
+    class Tail{
+        int pos = 0;
+        LinkedListNode tail;
+        public Tail(LinkedListNode head){
+            LinkedListNode cur = head;
+            while(cur.next != null){
+                cur = cur.next;
+                pos++;
+            }
+            tail = cur;
+        }
+    }
     /*
      * ----------------------------Chapter 8------------------------------------
      */

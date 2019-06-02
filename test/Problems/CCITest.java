@@ -5,6 +5,7 @@
  */
 package Problems;
 
+import CtCILibrary.AssortedMethods;
 import CtCILibrary.LinkedListNode;
 import junit.framework.TestCase;
 import practice.CCI;
@@ -202,6 +203,34 @@ public class CCITest extends TestCase {
         assertTrue(cci.isPalindrome(list2));
         assertFalse(cci.isPalindrome(list3));
         assertFalse(cci.isPalindrome(list4));
+    }
+    /**
+     * Test of intersection method
+     */
+    public void testIntersection(){
+        LinkedListNode[] list1 = new LinkedListNode[5];
+        LinkedListNode[] list2 = new LinkedListNode[5];
+        LinkedListNode[] list3 = new LinkedListNode[5];
+        LinkedListNode[] list4 = new LinkedListNode[5];
+        list1[0] = new LinkedListNode(AssortedMethods.randomInt(10));
+        list2[0] = new LinkedListNode(AssortedMethods.randomInt(10));
+        list3[0] = new LinkedListNode(AssortedMethods.randomInt(10));
+        list4[0] = new LinkedListNode(AssortedMethods.randomInt(10));
+        for(int i = 1; i < 5; i++){
+            list1[i] = new LinkedListNode(AssortedMethods.randomInt(10), null, list1[i - 1]);
+            list2[i] = new LinkedListNode(AssortedMethods.randomInt(10), null, list2[i - 1]);
+            list3[i] = new LinkedListNode(AssortedMethods.randomInt(10), null, list3[i - 1]);
+            list4[i] = new LinkedListNode(AssortedMethods.randomInt(10), null, list4[i - 1]);
+        }
+        list2[3].setNext(list1[4]);
+        System.out.println("L1: " + list1[0].printForward());
+        System.out.println("L2: " + list2[0].printForward());
+        assertEquals(list1[4], cci.intersection(list1[0], list2[0]));
+        
+        list3[4].setNext(list4[4]);
+        assertEquals(list4[4], cci.intersection(list3[0], list4[0]));
+        System.out.println("L3: " + list3[0].printForward());
+        System.out.println("L4: " + list4[0].printForward());
     }
     /**
      * Test of tripleStep method, of class CCI.
