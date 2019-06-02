@@ -524,6 +524,22 @@ public class CCI {
             tail = cur;
         }
     }
+    /**
+     * Question 2.8 Return the node at the beginning of a loop in a linked list
+     * @param head of linked list
+     * @return first node in loop of linked list
+     */
+    public LinkedListNode loopDetection(LinkedListNode head){
+        if(head == null) return null;
+        HashSet<LinkedListNode> ht = new HashSet<>();
+        LinkedListNode cur = head;
+        while(cur != null){
+            if(ht.contains(cur)) return cur;
+            ht.add(cur);
+            cur = cur.next;
+        }
+        return null;
+    }
     /*
      * ----------------------------Chapter 8------------------------------------
      */
