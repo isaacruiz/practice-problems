@@ -11,6 +11,8 @@ package CodeLibrary;
  */
 public class MyStack<T>{
     private StackNode<T> top;
+    private int capacity;
+    private int size;
     
     private static class StackNode<T>{
         private StackNode<T> next;
@@ -19,16 +21,23 @@ public class MyStack<T>{
             this.data = data;
         }
     }
+    public MyStack(){}
+    public MyStack(int capacity){
+        this.capacity = capacity;
+        size = 0;
+    }
     public void push(T value){
         StackNode<T> temp  = new StackNode(value);
         temp.next = top;
         top = temp;
+        size++;
     }
     
     public T pop(){
         if (top == null) return null;
         T t = top.data;
         top = top.next;
+        size--;
         return t;
     }
     
@@ -36,6 +45,9 @@ public class MyStack<T>{
         if(top == null)
             return null;
         return top.data;
+    }
+    public boolean isFull(){
+        return size==capacity;
     }
     
     public boolean isEmpty(){

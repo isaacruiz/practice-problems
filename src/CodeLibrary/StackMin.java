@@ -6,7 +6,8 @@
 package CodeLibrary;
 
 /**
- *
+ *Class that extends stack that can return the minimum value in the stack in
+ * constant time. Question 3.2 of Cracking the Coding Interview
  * @author Isaac
  */
 public class StackMin extends MyStack<Integer>{
