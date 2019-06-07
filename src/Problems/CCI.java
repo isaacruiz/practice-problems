@@ -581,4 +581,8 @@ public class CCI {
                     + numWays(steps - 3, memo);
         return memo[steps];
     }
+    class StackNode<T>{
+        public StackNode<T> next;
+        public T data;
+    }
 }
