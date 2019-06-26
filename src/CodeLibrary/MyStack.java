@@ -12,7 +12,7 @@ package CodeLibrary;
 public class MyStack<T>{
     private StackNode<T> top;
     private int capacity;
-    private int size;
+    private int size = 0;
     
     private static class StackNode<T>{
         private StackNode<T> next;
@@ -24,9 +24,11 @@ public class MyStack<T>{
     public MyStack(){}
     public MyStack(int capacity){
         this.capacity = capacity;
-        size = 0;
     }
+    
     public void push(T value){
+        if(size == capacity)
+            return;
         StackNode<T> temp  = new StackNode(value);
         temp.next = top;
         top = temp;

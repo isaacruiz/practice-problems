@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package practice.Problems;
-
+package Problems;
+import java.util.ArrayList;
+import java.util.HashSet;
 /**
  *
  * @author Isaac
@@ -13,7 +14,17 @@ public class PracticeProblems {
     /*
      * Write function that returns list of all permutations of given string
      */
-    
+    public static ArrayList<String> permutations(String s){
+        ArrayList<String> result = new ArrayList();
+        HashSet<String> permutations = new HashSet();
+        return result;
+    }
+    private void permutationsHelper(String s, ArrayList<String> result){
+        if(s.length() == result.get(0).length()) return;
+        for(int i = 0; i < s.length(); i++){
+            //permutations on left half, permutations on right half
+        }
+    }
     /*
      * Write function that takes two lists of characters as parameters and
      * returns two lists of characters. The first list contains characters that
